@@ -1,6 +1,7 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
-const TicketForm = ({ ticket, setTicket }) => {
+const TicketForm = ({ ticket, setTicket, setIsGenerate }) => {
+  const [isUpload, setIsUpload] = useState(false);
   const uploadRef = useRef(null);
 
   const formData = [
@@ -37,15 +38,18 @@ const TicketForm = ({ ticket, setTicket }) => {
     if (uploadRef.current) {
       uploadRef.current.click();
     }
+    setIsUpload(true);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    setTicket({ ...ticket });
+    setTicket({
+      ...ticket,
+      randomID: Math.random().toString().substr(2, 5),
+    });
+    setIsGenerate(true);
   };
-
-  console.log(ticket);
 
   return (
     <form onSubmit={handleSubmit} className="max-w-sm mx-auto w-full mt-4">
@@ -60,7 +64,21 @@ const TicketForm = ({ ticket, setTicket }) => {
             type="button"
             className="block mx-auto border rounded-md p-1 cursor-pointer"
           >
-            <img src="icon-upload.svg" alt="" />
+            {isUpload ? (
+              <>
+                <img
+                  className="w-8 h-8"
+                  src={
+                    (ticket.avatar &&
+                      ticket.avatar.replace("C:\\fakepath\\", "")) ||
+                    "icon-upload.svg"
+                  }
+                  alt=""
+                />
+              </>
+            ) : (
+              <img className="w-8 h-8" src="icon-upload.svg" alt="" />
+            )}
           </button>
 
           <input
@@ -69,11 +87,35 @@ const TicketForm = ({ ticket, setTicket }) => {
             id="file"
             required
             className="hidden"
-            value={ticket.avatar}
-            onChange={(e) => setTicket({ ...ticket, avatar: e.target.value })}
+            value={ticket.avatar || ""}
+            onChange={(e) =>
+              setTicket({
+                ...ticket,
+                avatar: e.target.value,
+              })
+            }
           />
 
-          <span>Drag and drop or click to upload</span>
+          {isUpload ? (
+            <div className="text-sm mt-2 flex items-center justify-center space-x-4 *:underline text-Neutral-300 *:bg-Neutral-700/40 *:rounded-md *:p-1">
+              <button
+                type="button"
+                onClick={() =>
+                  setTicket({
+                    ...ticket,
+                    avatar: null,
+                  })
+                }
+              >
+                Remove image
+              </button>
+              <button type="button" onClick={handleUploadFile}>
+                Change image
+              </button>
+            </div>
+          ) : (
+            <span>Drag and drop or click to upload</span>
+          )}
         </div>
         <div className="flex items-center">
           <img src="icon-info.svg" alt="" />
