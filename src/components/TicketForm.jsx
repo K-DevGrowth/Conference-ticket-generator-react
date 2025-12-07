@@ -71,7 +71,7 @@ const TicketForm = ({ ticket, setTicket, setIsGenerate }) => {
           </div>
         </div>
         <div
-          className={`flex items-center ${
+          className={`flex items-center text-sm ${
             errors.avatar ? "text-Orange-500" : ""
           }`}
         >

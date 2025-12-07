@@ -2,7 +2,7 @@ const Header = ({ isGenerate, name, email }) => {
   return (
     <header>
       <img className="mx-auto" src="logo-full.svg" alt="" />
-      <h1 className="text-4xl mx-auto pt-6 pb-2 max-w-lg font-bold text-center text-Neutral-0">
+      <h1 className="sm:text-4xl text-2xl mx-auto pt-6 pb-2 max-w-lg font-bold text-center text-Neutral-0">
         {isGenerate ? (
           <span>
             Congrats,{" "}

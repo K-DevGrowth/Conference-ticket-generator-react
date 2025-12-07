@@ -10,14 +10,19 @@ const TicketGenerator = ({ name, username, avatar, randomID }) => {
     <div className="mx-auto relative w-full max-w-md mt-10 text-Neutral-0">
       <img src="pattern-ticket.svg" alt="" />
 
-      <div className="flex absolute inset-0 p-4 pl-6 items-center justify-between">
-        <div>
-          <img src="logo-full.svg" alt="" />
+      <div className="absolute inset-0 p-4 sm:pl-6 w-full grid grid-cols-[4fr_auto_1fr]">
+        <div className="grid grid-rows-[auto_1fr]">
+          <img className="sm:w-full" src="logo-full.svg" alt="" />
           <p className="text-Neutral-500">
             {date.toLocaleDateString(undefined, options)} / Austin, TX
           </p>
-          <div className="flex items-center space-x-4 mt-10">
-            <img className="w-14 h-14 rounded-xl" src={avatar.name} alt="" />
+
+          <div className="flex items-center space-x-4">
+            <img
+              className="w-12 h-12 object-cover rounded-xl"
+              src={avatar.name}
+              alt=""
+            />
             <div className="flex flex-col">
               <span className="font-bold text-xl">{name}</span>
               <span className="flex space-x-1">
@@ -28,7 +33,9 @@ const TicketGenerator = ({ name, username, avatar, randomID }) => {
           </div>
         </div>
 
-        <p className="text-Neutral-500 text-2xl rotate-90 -mr-4">#{randomID}</p>
+        <p className="text-Neutral-500 sm:text-2xl rotate-90 -mr-4">
+          #{randomID}
+        </p>
       </div>
     </div>
   );

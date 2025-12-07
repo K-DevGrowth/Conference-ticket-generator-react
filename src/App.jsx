@@ -15,23 +15,35 @@ const App = () => {
   return (
     <main className="min-h-screen relative overflow-y-scroll hide-scrollbar">
       <img
-        className="w-full h-screen object-cover absolute inset-0 z-0"
+        className="w-full min-h-screen sm:block hidden object-cover absolute inset-0 z-0"
         src="background-desktop.png"
         alt=""
       />
       <img
-        className="w-full top-0 absolute z-10"
+        className="w-full sm:hidden block min-h-screen object-cover absolute inset-0 z-0"
+        src="background-mobile.png"
+        alt=""
+      />
+
+      <img
+        className="w-full sm:scale-100 scale-200 top-0 absolute z-10"
         src="pattern-lines.svg"
         alt=""
       />
       <img
-        className="w-full max-w-xl bottom-0 absolute z-10"
+        className="w-full sm:max-w-sm max-w-30 top-10 right-0 absolute z-10"
+        src="pattern-squiggly-line-top.svg"
+        alt=""
+      />
+
+      <img
+        className="w-full sm:block hidden max-w-xl bottom-0 absolute z-10"
         src="pattern-squiggly-line-bottom-desktop.svg"
         alt=""
       />
       <img
-        className="w-full max-w-sm top-10 right-0 absolute z-10"
-        src="pattern-squiggly-line-top.svg"
+        className="w-full sm:hidden block max-w-lg bottom-0 absolute z-10"
+        src="pattern-squiggly-line-bottom-mobile-tablet.svg"
         alt=""
       />
 
