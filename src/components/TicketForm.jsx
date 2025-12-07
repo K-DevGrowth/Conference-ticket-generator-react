@@ -24,17 +24,15 @@ const TicketForm = ({ ticket, setTicket, setIsGenerate }) => {
         </label>
 
         <div
-          className={`p-4 text-center border border-dashed rounded-md text-Neutral-300 ${
-            errors.avatar ? "border-Orange-500" : ""
-          } ${
-            isDragging
-              ? "border-Orange-500 bg-Neutral-700"
-              : "border-Neutral-500 "
-          }`}
+          tabIndex={0}
+          className={`p-4 text-center outline-none focus:ring-1 ring-offset-2 ring-offset-Neutral-900 ring-Neutral-300 hover:bg-Neutral-500/50 bg-Neutral-700/20 border border-dashed rounded-md text-Neutral-300 ${
+            errors.avatar ? "border-Orange-500" : "border-Neutral-500"
+          } ${isDragging ? "bg-Neutral-700" : "border-Neutral-500"}`}
           {...handleDragEvents}
         >
           <button
             type="button"
+            tabIndex={-1}
             onClick={() => uploadRef.current?.click()}
             className="block mx-auto border rounded-md p-1 cursor-pointer"
           >
@@ -56,7 +54,7 @@ const TicketForm = ({ ticket, setTicket, setIsGenerate }) => {
 
           <div className="mt-2 test-sm text-Neutral-300">
             {previewUrl ? (
-              <div className="space-x-4">
+              <div className="space-x-4 *:underline">
                 <button type="button" onClick={removeImage}>
                   Remove image
                 </button>
@@ -112,7 +110,7 @@ const TicketForm = ({ ticket, setTicket, setIsGenerate }) => {
       ))}
 
       <button
-        className="bg-Orange-500 cursor-pointer font-semibold w-full mt-2 px-3 py-2 rounded-md"
+        className="bg-Orange-500 hover:bg-Orange-700 hover:border-b-2 border-Orange-500 cursor-pointer font-semibold w-full mt-2 px-3 py-2 rounded-md"
         type="submit"
       >
         Generate My Ticket

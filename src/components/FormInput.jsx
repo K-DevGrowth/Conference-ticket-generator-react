@@ -15,7 +15,7 @@ const FormInput = ({
         {label}
       </label>
       <input
-        className="border border-Neutral-500 block w-full px-3 py-2 rounded-md text-Neutral-300"
+        className="border outline-none focus:ring-1 ring-offset-2 ring-offset-Neutral-900 ring-Neutral-300 hover:bg-Neutral-500/50 bg-Neutral-700/20 border-Neutral-500 block w-full px-3 py-2 rounded-md text-Neutral-300"
         id={id}
         name={name}
         type={type}
