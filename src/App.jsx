@@ -15,18 +15,18 @@ const App = () => {
   return (
     <main className="min-h-screen relative overflow-y-scroll hide-scrollbar">
       <img
-        className="w-full min-h-screen sm:block hidden object-cover absolute inset-0 z-0"
+        className="w-full h-full sm:block hidden object-cover absolute inset-0 z-0"
         src="background-desktop.png"
         alt=""
       />
       <img
-        className="w-full sm:hidden block min-h-screen object-cover absolute inset-0 z-0"
+        className="w-full sm:hidden block h-full object-cover absolute inset-0 z-0"
         src="background-mobile.png"
         alt=""
       />
 
       <img
-        className="w-full sm:scale-100 scale-200 top-0 absolute z-10"
+        className="w-full top-0 absolute max-h-screen z-10"
         src="pattern-lines.svg"
         alt=""
       />
@@ -47,7 +47,7 @@ const App = () => {
         alt=""
       />
 
-      <div className="px-5 py-12 xs:p-10 max-w-7xl mx-auto flex flex-col relative z-30">
+      <div className="px-5 py-12 xs:p-10 -mt-2 max-w-7xl mx-auto flex flex-col relative z-30">
         <Header
           isGenerate={isGenerate}
           name={ticket.name}
