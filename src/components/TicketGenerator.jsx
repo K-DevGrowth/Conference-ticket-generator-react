@@ -17,11 +17,7 @@ const TicketGenerator = ({ name, username, avatar, randomID }) => {
             {date.toLocaleDateString(undefined, options)} / Austin, TX
           </p>
           <div className="flex items-center space-x-4 mt-8">
-            <img
-              className="w-14 h-14 rounded-xl"
-              src={avatar.replace("C:\\fakepath\\", "")}
-              alt=""
-            />
+            <img className="w-14 h-14 rounded-xl" src={avatar.name} alt="" />
             <div className="flex flex-col">
               <span className="font-bold text-xl">{name}</span>
               <span className="flex space-x-2">
